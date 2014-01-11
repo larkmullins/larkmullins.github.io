@@ -1,0 +1,94 @@
+body {
+    background: transparent url(../images/background-tile.png) repeat top left;
+    font: 75% Arial, Helvetica, sans-serif;
+}
+
+#main-content {
+    margin: 15% auto 0;
+    width: 620px;
+}
+
+    #main-content h1 {
+        color: #777;
+        font: 1.8em 'Bebas', Arial, Helvetica, sans-serif;
+        text-align: center;
+        text-shadow: 1px 1px 0 #eee;
+    }
+
+    #main-content section {
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        margin: 12px 0;
+        padding: 12px 0;
+    }
+
+        #main-content section h2 {
+            color: #777;
+            font: 5.3em 'Bebas', Arial, Helvetica, sans-serif;
+            text-align: center;
+            text-shadow: 1px 1px 0 #fff;
+        }
+
+        #main-content section p {
+            color: #999;
+            font-size: 1.5em;
+            line-height: 1.5em;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+    #main-content ul {
+        text-align: center;
+    }
+
+        #main-content ul li {
+            display: inline;
+        }
+
+.icon-email, .icon-linkedin, .icon-github,
+.icon-bitbucket, .icon-twitter,
+.icon-googleplus, .icon-coderwall {
+    display: inline-block;
+    height: 48px;
+    opacity: 0.5;
+    text-indent: -9999px;
+    width: 48px;
+}
+
+    .icon-email:hover,
+    .icon-linkedin:hover,
+    .icon-github:hover,
+    .icon-bitbucket:hover,
+    .icon-twitter:hover,
+    .icon-googleplus:hover,
+    .icon-coderwall:hover {
+        opacity: 1;
+    }
+
+.icon-email {
+    background: transparent url(../images/icon-email.png) no-repeat top left;
+}
+
+.icon-linkedin {
+    background: transparent url(../images/icon-linkedin.png) no-repeat top left;
+}
+
+.icon-github {
+    background: transparent url(../images/icon-github.png) no-repeat top left;
+}
+
+.icon-bitbucket {
+    background: transparent url(../images/icon-bitbucket.png) no-repeat top left;
+}
+
+.icon-twitter {
+    background: transparent url(../images/icon-twitter.png) no-repeat top left;
+}
+
+.icon-googleplus {
+    background: transparent url(../images/icon-googleplus.png) no-repeat top left;
+}
+
+.icon-coderwall {
+    background: transparent url(../images/icon-coderwall.png) no-repeat top left;
+}
