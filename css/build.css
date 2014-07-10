@@ -1,8 +1,81 @@
 body {
-    background: transparent url(../images/background-tile.png) repeat top left;
+    /*background: transparent url(../images/background-tile.png) repeat top left;*/
     font: 75% Arial, Helvetica, sans-serif;
 }
 
+.sidebar {
+    left: 0;
+    padding: 2%;
+    position: fixed;
+    top: 0;
+    width: 55px;
+}
+
+.sidebar__logo {
+    margin: 0;
+}
+
+.sidebar__logo img {
+    height: auto;
+    width: 55px;
+}
+
+.sidebar__social {
+    text-align: center;
+}
+
+.sidebar__social li a[class^='icon'] {
+    background-size: 30px;
+    display: inline-block;
+    height: 30px;
+    margin-bottom: 6px;
+    text-indent: -9999px;
+    width: 30px;
+}
+
+.main {
+    margin: 2% auto;
+    width: 50%;
+}
+
+.post {
+    line-height: 1.5em;
+    margin-bottom: 2%;
+}
+
+.post p {
+    margin-bottom: 1.5em;
+}
+
+.post__header {
+    font-family: 'Prociono', Arial, Helvetica, sans-serif;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.post__title {
+    font-size: 3em;
+    line-height: 1.5em;
+}
+
+.post__meta {
+    color: #aaa;
+    font-size: 1.2em;
+}
+
+.sidebar:after,
+.main:after {
+    clear: both;
+    content: '.';
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+
+
+
+/*
 #main-content {
     margin: 15% auto 0;
     width: 620px;
@@ -63,7 +136,7 @@ body {
     .icon-coderwall:hover {
         opacity: 1;
     }
-
+*/
 .icon-email {
     background: transparent url(../images/icon-email.png) no-repeat top left;
 }

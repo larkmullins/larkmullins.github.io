@@ -8,3 +8,15 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Prociono';
+    src: url('../fonts/Prociono.eot');
+    src: url('../fonts/Prociono.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Prociono.woff') format('woff'),
+         url('../fonts/Prociono.ttf') format('truetype'),
+         url('../fonts/Prociono.svg#procionoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
