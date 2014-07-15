@@ -33,5 +33,71 @@
         </article>
     </div>
 </div>
+<script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="js/showdown.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    $.getJSON('https://api.github.com/users/larkmullins/gists', function(data) {
+        var posts = [];
+        $.each(data, function(k,v) {
+            if(v.description.match('^article\:')) {
+                posts.push(v);
+            }
+        });
+    }).done(function(posts) {
+        $.each(posts, function() {
+            /*
+            var id    = this.id;
+            var title = this.description.replace('article: ', '');
+            
+            // format date
+            var date  = new Date(this.updated_at);
+            var day   = date.getDate();
+            var month = months[date.getMonth()];
+            var year  = date.getFullYear();
+            var fdate = month + ' ' + day + ', ' + year;
+            */
+            
+            $('.main').append(buildPostHeader(this));
+        });
+    }).fail(function() {
+        $('.main').append('Uh-Oh! Something has happened. I am unable to display any posts.')
+    }).always(function() {
+        $('.post__title a').on('click', function(event) {
+            event.preventDefault();
+            var id = $(this).attr('href');
+            getPost(id);
+        });
+    });
+    
+    function getPost(id) {
+        $.getJSON('https://api.github.com/gists/' + id, function(data) {
+            var header  = buildPostHeader(data);
+            var content = data.files['test-post.md'].content;
+            var converter = new Showdown.converter();
+            var html = converter.makeHtml(content);
+            $('.main').html(header + html);
+        });
+    }
+    
+    function buildPostHeader(obj) {
+        var id    = obj.id;
+        var title = obj.description.replace('article: ', '');
+        
+        // format date
+        var date  = new Date(obj.updated_at);
+        var day   = date.getDate();
+        var month = months[date.getMonth()];
+        var year  = date.getFullYear();
+        var fdate = month + ' ' + day + ', ' + year;
+        
+        return '<article class="post"><header class="post__header"><h2 class="post__title"><a href="' + id + '">' + title +'</a></h2><p class="post__meta">' + fdate + '</p></header><article>';
+    }
+    
+});
+</script>
 </body>
 </html>
