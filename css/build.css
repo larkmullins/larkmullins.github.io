@@ -1,6 +1,6 @@
 body {
     /*background: transparent url(../images/background-tile.png) repeat top left;*/
-    font: 75% Arial, Helvetica, sans-serif;
+    font: 21px/30px 'LibSans-Regular', Helvetica, sans-serif;
 }
 
 .sidebar {
@@ -48,7 +48,7 @@ body {
 }
 
 .post__header {
-    font-family: 'Prociono', Arial, Helvetica, sans-serif;
+    font: 36px/42px 'LibSans-Bold', Helvetica, sans-serif;
     margin-bottom: 24px;
     text-align: center;
 }
