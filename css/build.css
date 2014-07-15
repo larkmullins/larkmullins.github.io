@@ -50,17 +50,7 @@ body {
 .post__header {
     font: 36px/42px 'LibSans-Bold', Helvetica, sans-serif;
     margin-bottom: 24px;
-    text-align: center;
-}
-
-.post__title {
-    font-size: 3em;
-    line-height: 1.5em;
-}
-
-.post__meta {
-    color: #aaa;
-    font-size: 1.2em;
+    text-align: left;
 }
 
 .sidebar:after,
