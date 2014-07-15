@@ -88,6 +88,14 @@ body {
     font: 16px/21px 'LibSans-Regular', Helvetica, sans-serif;
 }
 
+.masthead:after {
+    clear: both;
+    content: '.';
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
 /*
 .sidebar:after,
 .main:after {
