@@ -5,8 +5,7 @@ body {
 
 .masthead {
     border-bottom: 1px solid #ccc;
-    margin-bottom: 24px;
-    margin-left: 5%;
+    margin: 5% 5% 24px;
     width: 90%;
 }
 
