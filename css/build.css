@@ -35,7 +35,7 @@ body {
 
 .main {
     margin: 2% auto;
-    width: 50%;
+    width: 760px;
 }
 
 .post {
@@ -49,13 +49,14 @@ body {
 
 .post__header {
     font: 36px/42px 'LibSans-Bold', Helvetica, sans-serif;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     text-align: left;
 }
 
 .post__meta {
     color: #aaa;
-    font-size: 21px;
+    font-size: 16px;
+    line-height: 21px;
 }
 
 .sidebar:after,
