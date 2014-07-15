@@ -3,6 +3,13 @@ body {
     font: 21px/30px 'LibSans-Regular', Helvetica, sans-serif;
 }
 
+.masthead {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 24px;
+    margin-left: 5%;
+}
+
+/*
 .sidebar {
     left: 0;
     padding: 2%;
@@ -32,9 +39,9 @@ body {
     text-indent: -9999px;
     width: 30px;
 }
-
+*/
 .main {
-    margin: 2% auto;
+    margin-left: 5%;
     width: 760px;
 }
 
@@ -53,10 +60,13 @@ body {
     text-align: left;
 }
 
+.post__header a {
+    color: #04b45f;
+}
+
 .post__meta {
     color: #aaa;
-    font-size: 16px;
-    line-height: 21px;
+    font: 16px/21px 'LibSans-Regular', Helvetica, sans-serif;
 }
 
 .sidebar:after,
