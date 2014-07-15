@@ -53,6 +53,11 @@ body {
     text-align: left;
 }
 
+.post__meta {
+    color: #aaa;
+    font-size: 21px;
+}
+
 .sidebar:after,
 .main:after {
     clear: both;
