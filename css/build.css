@@ -9,6 +9,15 @@ body {
     margin-left: 5%;
 }
 
+.sociallist li a[class^='icon'] {
+    background-size: 30px;
+    display: inline-block;
+    height: 30px;
+    margin-bottom: 6px;
+    text-indent: -9999px;
+    width: 30px;
+}
+
 /*
 .sidebar {
     left: 0;
