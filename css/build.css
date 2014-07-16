@@ -74,6 +74,15 @@ body {
     width: 760px;
 }
 
+.main pre {
+    border: 1px solid #eee;
+    margin-bottom: 30px;
+}
+
+.main pre code {
+    font: 14px/16px Courier;
+}
+
 .post p {
     margin-bottom: 30px;
 }
