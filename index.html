@@ -19,20 +19,7 @@
             <li><a class="icon-coderwall" href="https://coderwall.com/larkmullins">CoderWall</a></li>
         </ul>
     </header>
-    <div class="main">
-        <article class="post">
-            <header class="post__header">
-                <h2 class="post__title"><a href="">MySQL is a great Girlfriend, but PostgreSQL is Marriage Material</a></h2>
-                <p class="post__meta">Jan 1, 2015 @ 1:12am</p>
-            </header>
-        </article>
-        <article class="post">
-            <header class="post__header">
-                <h2 class="post__title"><a href="">Post Title Here</a></h2>
-                <p class="post__meta">Jan 1, 2015 @ 1:12am</p>
-            </header>
-        </article>
-    </div>
+    <div class="main"></div>
 </div>
 <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
 <script src="js/showdown.js" type="text/javascript"></script>
@@ -42,33 +29,37 @@ $(document).ready(function() {
     
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     
-    var hash = window.location.hash;
+    //var hash = window.location.hash;
 
-    $.getJSON('https://api.github.com/users/larkmullins/gists', function(data) {
-        var posts = [];
-        $.each(data, function(k,v) {
-            if(v.description.match('^article\:')) {
-                posts.push(v);
+    $.getJSON('https://api.github.com/users/larkmullins/gists', function(data) {}).done(function(data) {
+        $.each(data, function(i, item) {
+            if(item.description.match('^POST\: ')) {
+                $('.main').append(buildPostHeader(item));
             }
-        });
-    }).done(function(posts) {
-        $.each(posts, function() {
-            $('.main').append(buildPostHeader(this));
+            
+            $('.post__title a').on('click', function(event) {
+                event.preventDefault();
+                var id = $(this).attr('href').replace('#', '');
+                getPost(id);
+            });
         });
     }).fail(function() {
         $('.main').append('Uh-Oh! Something has happened. I am unable to display any posts.')
-    }).always(function() {
-        $('.post__title a').on('click', function(event) {
-            event.preventDefault();
-            var id = $(this).attr('href').replace('#', '');
-            getPost(id);
-        });
     });
     
     function getPost(id) {
         $.getJSON('https://api.github.com/gists/' + id, function(data) {
             var header  = buildPostHeader(data);
-            var content = data.files['test-post.md'].content;
+            var title   = data.description.replace('POST: ', '');
+            
+            // get file name
+            for(var prop in data.files) {
+                var file = prop;
+                break;
+            }
+            
+            // get content, convert Markdown, and replace .main content
+            var content = data.files[file].content;
             var converter = new Showdown.converter();
             var html = converter.makeHtml(content);
             $('.main').html(header + html);
@@ -81,7 +72,7 @@ $(document).ready(function() {
     
     function buildPostHeader(obj) {
         var id    = obj.id;
-        var title = obj.description.replace('article: ', '');
+        var title = obj.description.replace('POST: ', '');
         
         // format date
         var date  = new Date(obj.updated_at);
