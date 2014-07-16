@@ -32,6 +32,11 @@ $(document).ready(function() {
     //var hash = window.location.hash;
 
     $.getJSON('https://api.github.com/users/larkmullins/gists', function(data) {}).done(function(data) {
+        if($.isEmptyObject(data)) {
+            $('.main').append('No posts found. Please check back later.');
+            return;
+        }
+
         $.each(data, function(i, item) {
             if(item.description.match('^POST\: ')) {
                 $('.main').append(buildPostHeader(item));
@@ -44,7 +49,7 @@ $(document).ready(function() {
             });
         });
     }).fail(function() {
-        $('.main').append('Uh-Oh! Something has happened. I am unable to display any posts.')
+        $('.main').append('Uh-Oh! Something has happened. I am unable to display any posts.');
     });
     
     function getPost(id) {
