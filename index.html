@@ -11,12 +11,9 @@
     <header class="masthead">
         <h1><a href="/">Father. Husband. Developer. All Around Geek!</a></h1>
         <ul class="sociallist">
-            <li><a class="icon-linkedin" href="https://linkedin.com/in/larkmullins">LinkedIn</a></li>
-            <li><a class="icon-github" href="https://github.com/larkmullins">Github</a></li>
-            <li><a class="icon-bitbucket" href="https://bitbucket.org/larkmullins">Bitbucket</a></li>
-            <li><a class="icon-twitter" href="https://twitter.com/larkmullins">Twitter</a></li>
-            <li><a class="icon-googleplus" href="https://plus.google.com/+LarkMullins">Google+</a></li>
-            <li><a class="icon-coderwall" href="https://coderwall.com/larkmullins">CoderWall</a></li>
+            <li><a href="https://linkedin.com/in/larkmullins">LinkedIn</a></li>
+            <li><a href="https://github.com/larkmullins">Github</a></li>
+            <li><a href="https://twitter.com/larkmullins">Twitter</a></li>
         </ul>
     </header>
     <div class="main"></div>
@@ -38,7 +35,7 @@ $(document).ready(function() {
         }
 
         $.each(data, function(i, item) {
-            if(item.description.match('^POST\: ')) {
+            if(item.description.match('^ARTICLE\: ')) {
                 $('.main').append(buildPostHeader(item));
             }
             
@@ -77,7 +74,7 @@ $(document).ready(function() {
     
     function buildPostHeader(obj) {
         var id    = obj.id;
-        var title = obj.description.replace('POST: ', '');
+        var title = obj.description.replace('ARTICLE: ', '');
         
         // format date
         var date  = new Date(obj.updated_at);
