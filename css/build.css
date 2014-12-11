@@ -1,5 +1,5 @@
 body {
-    /*background: transparent url(../images/background-tile.png) repeat top left;*/
+    background-color: #fff;
     font: 21px/30px 'LibSans-Regular', Helvetica, sans-serif;
     color: #333;
 }
@@ -12,7 +12,8 @@ body {
 
 .masthead h1 {
     /*float: left;*/
-    font: 18px/30px 'LibSans-Bold', Helvetica, sans-serif;
+    font: 1.9rem/30px 'LibSans-Bold', Helvetica, sans-serif;
+    margin-bottom: 0;
     width: 70%;
 }
 
@@ -29,17 +30,6 @@ body {
 .sociallist li {
     display: inline;
 }
-
-/*
-.sociallist li a[class^='icon'] {
-    background-size: 30px;
-    display: inline-block;
-    height: 30px;
-    margin-bottom: 6px;
-    text-indent: -9999px;
-    width: 30px;
-}
-*/
 
 .sociallist li a {
     color: #aaa;
@@ -64,6 +54,10 @@ body {
     font: 14px/16px Courier;
 }
 
+.post {
+    margin-bottom: 48px;
+}
+
 .post article {
     font: 14px/24px 'Courier';
 }
@@ -73,10 +67,14 @@ body {
 }
 
 .post__header {
-    /*font: 36px/42px 'LibSans-Bold', Helvetica, sans-serif;*/
-    font: bold 16px/24px Helvetica, sans-serif;;
     margin-bottom: 12px;
     text-align: left;
+}
+
+.post__title {
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 0;
 }
 
 .post__header a {
@@ -87,7 +85,8 @@ body {
 
 .post__meta {
     color: #aaa;
-    font: 14px/18px 'Courier';
+    font: 1.5rem 'Courier';
+    margin-left: 3px;
 }
 
 .masthead:after {
@@ -96,32 +95,4 @@ body {
     display: block;
     height: 0;
     visibility: hidden;
-}
-
-.icon-email {
-    background: transparent url(../images/icon-email.png) no-repeat top left;
-}
-
-.icon-linkedin {
-    background: transparent url(../images/icon-linkedin.png) no-repeat top left;
-}
-
-.icon-github {
-    background: transparent url(../images/icon-github.png) no-repeat top left;
-}
-
-.icon-bitbucket {
-    background: transparent url(../images/icon-bitbucket.png) no-repeat top left;
-}
-
-.icon-twitter {
-    background: transparent url(../images/icon-twitter.png) no-repeat top left;
-}
-
-.icon-googleplus {
-    background: transparent url(../images/icon-googleplus.png) no-repeat top left;
-}
-
-.icon-coderwall {
-    background: transparent url(../images/icon-coderwall.png) no-repeat top left;
 }
