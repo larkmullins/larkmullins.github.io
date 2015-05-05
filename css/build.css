@@ -1,6 +1,9 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 body {
     background-color: #fff;
-    font: 21px/30px 'LibSans-Regular', Helvetica, sans-serif;
+    /*font: 21px/30px 'LibSans-Regular', Helvetica, sans-serif;*/
+    font: 21px/30px 'Open Sans', sans-serif;
     color: #333;
 }
 
