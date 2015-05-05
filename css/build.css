@@ -46,6 +46,7 @@ body {
 .main {
     margin-left: 5%;
     max-width: 35%;
+    min-width: 20%;
 }
 
 .main pre {
