@@ -53,7 +53,7 @@ body {
 }
 
 .main pre code {
-    font: 14px/16px Courier;
+    font: 14px/1.6em Courier;
 }
 
 .post {
