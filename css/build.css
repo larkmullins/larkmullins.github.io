@@ -45,11 +45,10 @@ body {
 
 .main {
     margin-left: 5%;
-    max-width: 55%;
+    max-width: 35%;
 }
 
 .main pre {
-    border: 1px solid #eee;
     margin-bottom: 30px;
 }
 
