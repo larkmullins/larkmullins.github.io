@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<link href="css/reset.css" rel="stylesheet" type="text/css" />-->
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="/css/skeleton.css" rel="stylesheet" type="text/css" />
+    <link href="/css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/css/build.css" rel="stylesheet" type="text/css" />
+    <link href="/css/github.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="page">
+    <header class="masthead">
+        <h1><a href="/">Father. Husband. Developer. All Around Geek!</a></h1>
+        <ul class="sociallist">
+            <li><a href="https://github.com/larkmullins">Github</a></li>
+            <li><a href="https://twitter.com/larkmullins">Twitter</a></li>
+            <li><a href="https://linkedin.com/in/larkmullins">LinkedIn</a></li>
+        </ul>
+    </header>
+    <div class="main"></div>
+</div>
+<script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="js/showdown.js" type="text/javascript"></script>
+<script src="js/highlight.pack.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    window.posts = [];
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    //var hash = window.location.hash;
+
+    $.getJSON('https://api.github.com/users/larkmullins/gists', function(data) {}).done(function(data) {
+        if($.isEmptyObject(data)) {
+            $('.main').append('No posts found. Please check back later.');
+            return;
+        }
+
+        $.each(data, function(i, item) {
+            var posts = [];
+            var regex = /ARTICLE\[(\d+-\d+-\d+)\]:/;
+            if(item.description.match(regex)) {
+                var pub = (item.description.match(regex))[1];
+                if(!isFuture(pub)) {
+                    window.posts.push({date: new Date(pub), post: item});
+                }
+            }
+        });
+
+        // sort ports desc
+        var posts = window.posts.sort(sortPosts);
+
+        // build post headlines and bind click action
+        $.each(posts, function(date, post) {
+            $('.main').append(buildPostHeader(post.post));
+
+            $('.post__title a').on('click', function(event) {
+                event.preventDefault();
+                var id = $(this).attr('href').replace('#', '');
+                getPost(id);
+            });
+        });
+    }).fail(function() {
+        $('.main').append('Uh-Oh! Something has happened. I am unable to display any posts.');
+    });
+
+    function sortPosts(a, b) {
+        var d1 = a.date;
+        var d2 = b.date;
+
+        return ((d1 > d2) ? -1 : ((d1 < d2) ? 1 : 0));
+    }
+
+    /**
+     * checks if date provided is in the future
+     */
+    function isFuture(date) {
+        var today = new Date();
+        var day   = today.getDate();
+        var month = today.getMonth() + 1; // January is 0
+        var year  = today.getFullYear();
+
+        day   = day < 10 ? '0' + day : day;
+        month = month < 10 ? '0' + month : month;
+
+        today = month + '-' + day + '-' + year;
+        today = new Date(today);
+        date  = new Date(date);
+
+        if(today < date) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function getPost(id) {
+        $.getJSON('https://api.github.com/gists/' + id, function(data) {
+            var header  = buildPostHeader(data);
+            var title   = data.description.replace('POST: ', '');
+
+            // get file name
+            for(var prop in data.files) {
+                var file = prop;
+                break;
+            }
+
+            // get content, convert Markdown, and replace .main content
+            var content = data.files[file].content;
+            var converter = new Showdown.converter();
+            var html = converter.makeHtml(content);
+            $('.main').html(header + html);
+        }).done(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    }
+
+    function buildPostHeader(obj) {
+        var id    = obj.id;
+        var regex = /ARTICLE\[(\d+-\d+-\d+)\]:/;        // reg ex to match and replace
+        var pub   = (obj.description.match(regex))[1];  // get publication date
+        var title = obj.description.replace(regex, ''); // remove the ARTICLE[00-00-0000]: from string
+
+        // format date
+        var date  = new Date(pub);
+        var day   = date.getDate();
+        var month = months[date.getMonth()];
+        var year  = date.getFullYear();
+        var fdate = month + ' ' + day + ', ' + year;
+
+        return '<article class="post"><header class="post__header"><h2 class="post__title"><a href="#' + id + '">' + title +'</a></h2><p class="post__meta">' + fdate + '</p></header><article>';
+    }
+
+});
+</script>
+</body>
+</html>
