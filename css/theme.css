@@ -11,9 +11,9 @@ html{
 }
 
 * {
-    font-family: 'Roboto Slab', serif;
-    font-size: 20px;
-    font-weight: 100;
+    font-family: 'Rubik', serif;
+    font-size: 16px;
+    line-height: 28px;
 }
 
 h1 {
@@ -66,7 +66,7 @@ code {
 }
 
 pre {
-    background: #292824 !important;
+    background: #f1f1f1 !important;
     padding: 10px; border-radius: 3px;
     font-family: monospace;
     overflow-x: scroll;
@@ -75,7 +75,7 @@ pre {
 pre > code {
     padding: 0 !important; margin: 0 !important;
     background: none;
-    color: #FFF;
+    color: #555;
 }
 
 pre code, pre code * {
@@ -98,9 +98,9 @@ a {
     color: #fff;
 }
 
-a:hover {
+/*a:hover {
     font-weight: bold;
-}
+}*/
 
 img {
     max-width: 700px;
@@ -123,13 +123,29 @@ html, body {
     color: #2980b9;
 }
 
+.container .main {
+
+}
+
 .header {
-    background-color: #3498db;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #e1e1e1;
     padding: 30px;
-    color: #FFF;
+    color: #bbb;
     font-weight: bold;
     font-size: 22px;
     position: relative;
+}
+
+.header a {
+  color: #bbb;
+}
+
+.header .tagline {
+  float: right;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .header .icon {
@@ -144,7 +160,7 @@ html, body {
 
 .footer {
     text-align: center;
-    background-color: #3498db;
+    background-color: #fff;
     padding: 30px;
 }
 
@@ -160,4 +176,8 @@ html, body {
 .footer .social {
     text-align: center;
     margin: 0 auto;
+}
+
+.footer .social a {
+  color: #bbb;
 }
