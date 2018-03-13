@@ -1,48 +1,36 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,600,800');
-
 html, body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
+  background: #f9f9f9;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  padding: 36px 48px;
 }
 
-body {
-  background:
-    linear-gradient(rgba(20,41,70, 0.75), rgba(180,67,231, 0.35)),
-    url(images/white_carbon.png);
-  color: #f4f5f6;
-  font: 24px 'Nunito', sans-serif;
-  padding: 0;
-}
-
-.content {
-  margin: 124px 62px;
-  width: 600px;
-}
-
-.logo {
-  -webkit-filter: invert(100%); filter: invert(100%);
-  height: auto;
-  margin: 0 0 60px;
-  width: 50px;
-}
-
-.social {
-  font-size: 16px;
-  font-weight: 800;
-  list-style: none;
-  margin: 0 0 24px;
-  padding: 0;
+.title-block {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 38px;
+  margin-bottom: 12px;
   text-transform: uppercase;
 }
 
-.social a {
-  color: #142946;
+.tagline-block {
+  color: #aaa;
+  font-size: 18px;
+  margin-bottom: 86px;
+}
+
+.content {
+  color: #333;
+  font-size: 28px;
+  line-height: 42px;
+  width: 750px;
+}
+
+.content a {
+  color: green;
   text-decoration: none;
 }
 
-.social li {
-  display: inline;
-  margin-right: 12px;
+.content a:hover {
+  text-decoration: underline;
 }
