@@ -5,7 +5,7 @@ html, body {
   padding: 36px 48px;
 }
 
-.title-block {
+.home .title-block {
   font-size: 48px;
   font-weight: 900;
   line-height: 38px;
@@ -13,17 +13,60 @@ html, body {
   text-transform: uppercase;
 }
 
-.tagline-block {
+.post .title-block {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 12px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+  .post .title-block a {
+    color: #000;
+    text-decoration: none;
+  }
+
+.home .tagline-block {
   color: #aaa;
   font-size: 18px;
   margin-bottom: 86px;
 }
 
-.content {
+.post .tagline-block {
+  color: #aaa;
+  font-size: 16px;
+  margin-bottom: 86px;
+}
+
+.home .content {
   color: #333;
   font-size: 28px;
   line-height: 42px;
   width: 750px;
+}
+
+.post .content {
+  color: #333;
+  font-size: 24px;
+  line-height: 36px;
+  width: 750px;
+}
+
+.post .post-header .post-title {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 32px;
+}
+
+.post .post-header .post-meta {
+  color: #aaa;
+  font-size: 16px;
+  margin-bottom: 56px;
+  margin-left: 1px;
+}
+
+.post .post-body p {
+  margin-bottom: 24px;
 }
 
 .content a {
