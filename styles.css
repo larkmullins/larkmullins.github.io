@@ -52,6 +52,19 @@ html, body {
   width: 750px;
 }
 
+.post .post-block .post-title {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 32px;
+}
+
+.post .post-block .post-meta {
+  color: #aaa;
+  font-size: 16px;
+  margin-bottom: 36px;
+  margin-left: 1px;
+}
+
 .post .post-header .post-title {
   font-size: 36px;
   font-weight: 900;
@@ -67,6 +80,16 @@ html, body {
 
 .post .post-body p {
   margin-bottom: 24px;
+}
+
+.post .post-body h1,
+.post .post-body h2,
+.post .post-body h3,
+.post .post-body h4,
+.post .post-body h5,
+.post .post-body h6,
+.post .post-body b {
+  font-weight: 900;
 }
 
 .content a {
