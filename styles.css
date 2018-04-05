@@ -52,12 +52,12 @@ html, body {
   width: 750px;
 }
 
+.post .post-block .post-title,
 .post .post-header .post-title {
-  font-size: 36px;
-  font-weight: 900;
-  line-height: 32px;
+  font-size: 28px;
 }
 
+.post .post-block .post-meta,
 .post .post-header .post-meta {
   color: #aaa;
   font-size: 16px;
